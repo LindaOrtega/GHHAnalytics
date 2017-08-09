@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>GHHAnalytics</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <h3>Get Healthy Heights Analytics</h3>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="">Partners & Groups</a></li>
+        <li role="presentation"><a href="category">Categories</a></li>
+        <li role="presentation"><a href="coverage">Coverage</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+
+  <!-- Partner Statistics -->
+  <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+    <h4>Partner Organization Statistics</h4>
+    {% for p in partners %}
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="pheading{{p['id']}}">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#pcollapse{{p['id']}}" aria-expanded="false" aria-controls="pcollapse{{p['id']}}">
+            {{p['name']}}
+          </a>
+        </h4>
+      </div>
+      <div id="pcollapse{{p['id']}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pheading{{p['id']}}">
+        <div class="panel-body">
+        	<!-- Table -->
+            <table class="table">
+              <tr>
+                <td># of Members</td>
+                <td>{{p['num_mem']}}</td>
+              </tr> 
+              <tr>
+                <td># of Content Posted By Members</td>
+                <td>{{p['num_content']}}</td>
+              </tr>
+              <tr>
+                <td># of Active Members</td>
+                <td>{{p['num_active']}}</td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+    {% endfor %} 
+  </div>
+
+  <!-- Group Statistics -->
+  <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+    <h4>Interest Group Statistics</h4>
+    {% for g in groups %}
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="gheading{{g['id']}}">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#gcollapse{{g['id']}}" aria-expanded="false" aria-controls="gcollapse{{g['id']}}">
+            {{g['name']}}
+          </a>
+        </h4>
+      </div>
+      <div id="gcollapse{{g['id']}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="gheading{{g['id']}}">
+        <div class="panel-body">
+        	<!-- Table -->
+            <table class="table">
+              <tr>
+                <td># of Members</td>
+                <td>{{g['num_mem']}}</td>
+              </tr> 
+              <tr>
+                <td># of Content Posted By Members</td>
+                <td>{{g['num_content']}}</td>
+              </tr>
+              <tr>
+                <td># of Active Members</td>
+                <td>{{g['num_active']}}</td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+    {% endfor %} 
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</body>
+</html>

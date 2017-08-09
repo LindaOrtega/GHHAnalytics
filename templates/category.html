@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>GHHAnalytics</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <h3>Get Healthy Heights Analytics</h3>
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/">Partners & Groups</a></li>
+        <li role="presentation" class="active"><a href="">Categories</a></li>
+        <li role="presentation"><a href="/coverage">Coverage</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+
+    <!-- Category Statistics -->
+  <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+    <h4>Content Category Statistics</h4>
+    {% for c in categories %}
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="cheading{{c['idx']}}">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion3" href="#ccollapse{{c['idx']}}" aria-expanded="false" aria-controls="ccollapse{{c['idx']}}">
+            {{c['name']}}
+          </a>
+        </h4>
+      </div>
+      <div id="ccollapse{{c['idx']}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="cheading{{c['idx']}}">
+        <div class="panel-body">
+          <div class="panel panel-default">
+            <!-- Table -->
+            <table class="table">
+              <tr>
+                <td># of Contents</td>
+                <td>{{c['num_content']}}</td>
+              </tr> 
+              <tr>
+                <td># of Member Hits</td>
+                <td>{{c['num_mem_hit']}}</td>
+              </tr>
+              <tr>
+                <td># of Non-Member Hits</td>
+                <td>{{c['num_nonmem_hit']}}</td>
+              </tr>
+              <tr>
+                <td># of Comments</td>
+                <td>{{c['num_comment']}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %} 
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</body>
+</html>
